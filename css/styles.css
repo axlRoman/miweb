@@ -3,7 +3,7 @@
     --purpura: #4c3f6d;
     --morado: #8f79cb;
     --rosa: #c2a0ea;
-    --cremita: #f5c5f9;
+    --rosita: #f5c5f9;
     --blanco: #FFF;
     --gris: #ebebeb;
 }
@@ -12,7 +12,7 @@
 html{
     font-size: 62.5%;
     box-sizing: border-box;
-    background-color: var(--gris);
+    /*background-color: var(--gris);*/
 }
 
 .titulo{
@@ -20,31 +20,76 @@ html{
     font-size: 3.8rem;
 }
 
+/*Navegacion logo (inicio) / Barra de busqueda / Usuario y Carrito*/
+/* Navegacion principal */
 .navbar{
     display: flex;
-    position: static;
+    position: center;
     float: none;
     flex-flow: row nowrap;
     height: 6rem;
     background-color: var(--oscuro);
-    color: var(--cremita);
+    color: var(--rosita);
+}
+/*Logo*/
+.logo{
+    justify-content: left;
 }
 
-.navleft{
-    display: flex;
-    position: static;
-    float: none;
-    flex-shrink: 0;
-    text-decoration: none;
-    padding: 1rem 8rem 6rem;
-    margin: 1rem;
+/*Barra de busqueda*/
+.buscar{
+    position: absolute;
+    padding: 0.5rem;
+    
 }
-/*
-body{
-    background-image: linear-gradient(to bottom, var(--oscuro) 0%, var(--purpura) 25%, var(--morado) 50%,
-    var(--rosa) 75%, var(--cremita) 100%);
 
-}*/
+.buscar input{
+    width: 40rem;
+    height: 4rem;
+    padding: 0 2rem;
+    font-size: 1.8rem;
+    color: #000;
+    outline: none;
+    border: 0.1rem solid silver;
+    border-radius: 3rem;
+}
+
+.boton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--morado);
+    width: 5.5rem;
+    height: 5.5rem;
+    line-height: 5.5rem;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) { 
+    .buscar input{
+        width: 0px;
+        height: 40px;
+        padding: 0 20px;
+        font-size: 18px;
+        color: #000;
+        outline: none;
+        border: 1px solid silver;
+        border-radius: 3rem;
+        transition: all 0.6s ease;
+    }
+    .buscar:hover input{
+        width: 24rem;
+    }
+    
+    .buscar input:focus{
+        width: 24rem;
+    }
+}
+
 
 p{
     font-size: 3rem;
@@ -52,7 +97,7 @@ p{
 }
 
 .contenedor{
-    max-width: 120rem;
+    max-width: 100rem;
     margin: 3rem auto;
 }
 
@@ -65,16 +110,6 @@ p{
     border-radius: 1rem;
 }
 
-.footer {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    
-    background-color: var(--oscuro);
-    color: var(--cremita);
-    padding-bottom: 3rem;
-}
-
 .nav-bg{
     background-color: var(--purpura);
 }
@@ -83,4 +118,36 @@ p{
     display: flex;
     flex-direction: column;    
     margin: 0rem auto;
+}
+.navegacion-principal a{
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+@media (min-width: 480px) { /* 480PX MOVILES, 768PX tablets 1140px laptops, 1400px pantallas*/
+    .navegacion-principal{
+        flex-direction: row;        
+        justify-content: space-evenly;
+    }
+}
+
+.navegacion-principal a:hover{
+    background-color: var(--rosita);
+    color: #000;
+}
+
+
+.footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: var(--oscuro);
+    color: var(--rosita);
+    padding-bottom: 3rem;
 }
