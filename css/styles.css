@@ -1,12 +1,18 @@
 :root{
-    --oscuro: #100e1b;
+    --principal: #695be6;
+    --botones: #440088;
     --purpura: #4c3f6d;
-    --morado: #8f79cb;
-    --rosa: #c2a0ea;
+    --morado: #8f79cb;    
     --rosita: #f5c5f9;
-    --blanco: #FFF;
     --gris: #ebebeb;
 }
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
 
 /* Globales */
 html{
@@ -25,11 +31,12 @@ html{
 .navbar{
     display: flex;
     position: center;
+    justify-content: center;
     float: none;
     flex-flow: row nowrap;
-    height: 6rem;
-    background-color: var(--oscuro);
-    color: var(--rosita);
+    height: 7rem;
+    background-color: var(--purpura);
+    color: white;
 }
 /*Logo*/
 .logo{
@@ -44,6 +51,7 @@ html{
 }
 
 .buscar input{
+    margin-top: 1rem;
     width: 40rem;
     height: 4rem;
     padding: 0 2rem;
@@ -55,10 +63,11 @@ html{
 }
 
 .boton{
+    margin-top: 0.8rem;
     position: absolute;
     top: 0;
     right: 0;
-    background: var(--morado);
+    background: var(--botones);
     width: 5.5rem;
     height: 5.5rem;
     line-height: 5.5rem;
@@ -73,8 +82,8 @@ html{
     .buscar input{
         width: 0px;
         height: 40px;
-        padding: 0 20px;
-        font-size: 18px;
+        padding: 0 2rem;
+        font-size: 1.8rem;
         color: #000;
         outline: none;
         border: 1px solid silver;
@@ -82,11 +91,11 @@ html{
         transition: all 0.6s ease;
     }
     .buscar:hover input{
-        width: 24rem;
+        width: 240px;
     }
     
     .buscar input:focus{
-        width: 24rem;
+        width: 240px;
     }
 }
 
@@ -111,7 +120,7 @@ p{
 }
 
 .nav-bg{
-    background-color: var(--purpura);
+    background-color: var(--morado);
 }
 
 .navegacion-principal{
@@ -122,7 +131,7 @@ p{
 .navegacion-principal a{
     display: block;
     text-align: center;
-    color: var(--blanco);
+    color: white;
     text-decoration: none;
     font-size: 2rem;
     font-weight: 700;
@@ -147,7 +156,7 @@ p{
     display: flex;
     flex-direction: column;
     
-    background-color: var(--oscuro);
-    color: var(--rosita);
+    background-color: var(--purpura);
+    color: white;
     padding-bottom: 3rem;
 }
