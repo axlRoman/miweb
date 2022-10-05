@@ -3,7 +3,7 @@
     --botones: #440088;
     --purpura: #4c3f6d;
     --morado: #8f79cb;    
-    --rosita: #f5c5f9;
+    --rosa: #f5c5f9;
     --gris: #ebebeb;
 }
 
@@ -26,6 +26,19 @@ html{
     font-size: 3.8rem;
 }
 
+header{
+    display: flex;
+    height: 7rem;
+    background-color: var(--purpura);
+    justify-content: space-between;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
 /*Navegacion logo (inicio) / Barra de busqueda / Usuario y Carrito*/
 /* Navegacion principal */
 .navbar{
@@ -33,26 +46,33 @@ html{
     position: center;
     justify-content: center;
     float: none;
-    flex-flow: row nowrap;
+    flex-flow: wrow nowrap;
     height: 7rem;
     background-color: var(--purpura);
     color: white;
 }
 /*Logo*/
 .logo{
-    justify-content: left;
+    margin-left: 1rem;
+    /*display: flex;*/
+    /*position: absolute;
+    text-decoration: none;*/
+}
+.logo img{
+    height: 5rem;
+    margin-right: 1rem;
 }
 
 /*Barra de busqueda*/
 .buscar{
-    position: absolute;
+    position: relative;    
+    margin-bottom: 0.5rem;
     padding: 0.5rem;
-    
 }
 
 .buscar input{
     margin-top: 1rem;
-    width: 40rem;
+    width: 45rem;
     height: 4rem;
     padding: 0 2rem;
     font-size: 1.8rem;
@@ -60,13 +80,14 @@ html{
     outline: none;
     border: 0.1rem solid silver;
     border-radius: 3rem;
+    transition: all 0.6s ease;
 }
 
 .boton{
     margin-top: 0.8rem;
     position: absolute;
-    top: 0;
-    right: 0;
+    right: 0%;
+    top: 0%;        
     background: var(--botones);
     width: 5.5rem;
     height: 5.5rem;
@@ -78,7 +99,22 @@ html{
     cursor: pointer;
 }
 
-@media (max-width: 480px) { 
+@media (max-width: 768px) { /*Para Tablet*/
+    .buscar input{
+        width: 35rem;
+        height: 40px;
+        padding: 0 2rem;
+        font-size: 1.8rem;
+        color: #000;
+        outline: none;
+        border: 1px solid silver;
+        border-radius: 3rem;
+        transition: all 0.6s ease;
+    }
+    
+}
+
+@media (max-width: 480px) { /*Para Movil*/
     .buscar input{
         width: 0px;
         height: 40px;
@@ -91,13 +127,18 @@ html{
         transition: all 0.6s ease;
     }
     .buscar:hover input{
-        width: 240px;
+        width: 20rem;
     }
     
     .buscar input:focus{
-        width: 240px;
+        width: 20rem;
     }
 }
+
+.carrito{
+    margin-right: 1rem;
+}
+
 
 
 p{
@@ -146,7 +187,7 @@ p{
 }
 
 .navegacion-principal a:hover{
-    background-color: var(--rosita);
+    background-color: var(--rosa);
     color: #000;
 }
 
