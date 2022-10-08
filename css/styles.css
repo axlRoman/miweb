@@ -26,6 +26,26 @@ html{
     font-size: 3.8rem;
 }
 
+/*utilidades*/
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) { 
+    .w-sm-100{
+        width: auto;
+    }    
+}
+
+.flex{
+    display: flex;
+}
+
 header{
     display: flex;
     height: 7rem;
@@ -36,7 +56,12 @@ header{
 
 a{
     text-decoration: none;
-    color: white;
+    color: #000;
+}
+
+p{
+    font-size: 1.8rem;
+    
 }
 
 /*Navegacion logo (inicio) / Barra de busqueda / Usuario y Carrito*/
@@ -134,31 +159,16 @@ a{
         width: 20rem;
     }
 }
-
+/*fin de barra de busqueda*/
+/*diseño visual del boton carrito*/
 .carrito{
     margin-right: 1rem;
-}
-
-
-
-p{
     font-size: 3rem;
-    
+    color: white;
 }
 
-.contenedor{
-    max-width: 100rem;
-    margin: 3rem auto;
-}
-
-.sombra{
-    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
-    -mozbox-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
-    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48  );
-    background-color: var(--blanco);
-    padding: 2rem;
-    border-radius: 1rem;
-}
+/* fin del carrito*/
+/* Menu de navegacion */
 
 .nav-bg{
     background-color: var(--morado);
@@ -186,12 +196,85 @@ p{
     }
 }
 
+/*fin de botones de navegacion*/
+
 .navegacion-principal a:hover{
     background-color: var(--rosa);
     color: #000;
 }
 
 
+.contenedor{
+    max-width: 100rem;
+    margin: 3rem auto;
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    -mozbox-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48  );
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/*Aqui se mostraran los productos principales del catalogo*/
+.productos{
+    display: grid;
+    grid-template-columns: repeat(4,3fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+.producto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.producto img{
+    height: 20rem;    
+    width: 20rem;
+    
+}
+
+.producto .descripcion{
+    text-align: center;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+@media (max-width: 780px) { 
+    .productos{
+        display: grid;
+        grid-template-columns: repeat(3,3fr);
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+}
+
+@media (max-width: 468px) { 
+    .productos{
+        display: grid;
+        grid-template-columns: repeat(2,3fr);
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+
+    .producto img{
+        height: 15rem;  
+        width: 15rem;  
+    }
+}
+
+
+
+.producto:hover{
+    background: var(--rosa);    
+    color: #000;
+}
+
+/* Foooter */
 .footer {
     text-align: center;
     display: flex;
@@ -199,5 +282,212 @@ p{
     
     background-color: var(--purpura);
     color: white;
-    padding-bottom: 3rem;
+    padding-bottom: 10rem;
+}
+
+/*Apartado de contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: min( 60rem, 100% ); /*min utiliza el valor mas pequeño*/
+    margin: 5rem auto; /* Se utiliza cuando su padre no es un display flex*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--purpura);
+}
+
+@media (min-width: 768px) { 
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4){
+        grid-column: 1 / 3;
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.campo textarea {
+    height: 20rem;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+
+.boton-formulario{
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--botones);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    color: white;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media (max-width: 480px) { 
+    .boton-formulario{
+        width: auto;
+    }
+}
+
+.boton-formulario:hover {
+    cursor: pointer;
+}
+
+
+
+/* Apartado de Loggin*/
+.formulario-login{
+    max-width: 50rem;
+    margin: 3rem auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+}
+
+.formulario-login h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.formulario-login form{
+    padding: 0  40px;
+    box-sizing: border-box;    
+}
+
+form .username{
+    position: relative;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #adadad;
+}
+
+.username input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.username label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.username span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #6C3483;
+}
+
+.username input:focus ~ label,
+.username input:focus ~ label{
+    top: -5px;
+    transition: all 0.6s ease;
+    color: #6C3483;
+}
+
+.username input:focus ~ span::before{
+    width: 100%;
+}
+
+.recordar{
+    margin: -5px 0 20px 5px;
+    color: blue;
+    cursor: pointer;
+}
+
+.recordar:hover{
+    text-decoration: underline;
+}
+
+input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #6C3483;
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="submit"]:hover{
+    border-color: purple;
+    transition: 5s;
+}
+
+.registrarse{
+    margin: 30px;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+}
+
+.registrarse a{
+    color: blue;
+    text-decoration: none;
+}
+
+.registrarse a:hover{
+    text-decoration: underline;
+}
+
+.quienes-somos{
+    padding: 3rem;
+    padding-bottom: 6.2rem;
 }

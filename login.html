@@ -11,14 +11,7 @@
         rel="stylesheet"/>
         <script src="https://kit.fontawesome.com/24d0778069.js" crossorigin="anonymous"></script>
         <link rel="icon" href="imgs/Logo RomanTech.png">
-        <title>RomanTech</title>
-        <!--<link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />-->
+        <title>Registro de RomanTech</title>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="preload" href="css/styles.css" as="style">
         <link rel="stylesheet" href="css/styles.css">
@@ -28,14 +21,14 @@
         <header>
             <a href="index.html"class="logo">
                 <img src="imgs/Logo RomanTech.png" alt="Logo de la compañia" class="logo-img">                    
-            </a>               
+            </a>  
             <div class="buscar">
                 <input type="text" placeholder="Buscar" required class="buscar">
-                <a href="resultados.html">
-                    <div class="boton">
-                        <i class="fas fa-search icon"></i>
-                    </div>
-                </a>
+                        <a href="resultados.html">
+                        <div class="boton">
+                            <i class="fas fa-search icon"></i>
+                        </div>  
+                    </a>
             </div>
             <div>
                 <a href="cart.html">                        
@@ -43,29 +36,39 @@
                         <i class="fas fa-cart-shopping icon"></i>
                     </div>                        
                 </a>
-            </div>                             
+            </div>                                                    
         </header>
-
         <div class="nav-bg">
             <nav class="navegacion-principal">
                 <a href="index.html">Inicio</a>                
                 <a href="quienes somos.html">Quienes Somos</a>
                 <a href="catalogo.html">Catalogo</a>
-                <a href="registo.html">Registro</a>
+                <a href="registo.html">Iniciar Sesion</a>
                 <a href="contacto.html">Contacto</a>
-                <!--<a href="#">Videojuegos</a>-->
+
             </nav>
         </div>
 
-        <main class="contenedor sombra">
-            
-            <h1>Hola soy carrito de compras</h1>
-        </main>
-            
-        <footer class="footer">
-            <p>Todos los derechos reservados RomanTech Latam YouTube</p>
-        </footer>
-
+        <div class="formulario-login sombra">
+            <h1>Inicio de session</h1>
+            <form method="post">
+                <div class="username">
+                    <input type="text" required>
+                    <label >Nombre de usuario</label>
+                </div>
+                <div class="username">
+                    <input type="password" required>
+                    <label >Contraseña</label>
+                </div>
+                <div class="recordar">
+                    ¿Olvido su contraseña?
+                </div>
+                <input type="submit" value="Iniciar">
+                <div class="registrarse">
+                    Quiero hacer el <a href="">registro</a>
+                </div>
+            </form>
+        </div>
         
     </body>
 </html>
