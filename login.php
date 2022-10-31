@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loging</title>
-    <link rel="stylesheet" href="css/style login.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,300,0,0" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/style login.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,300,0,0" />
 </head> 
 <body>
     <div class="login-card-container">
@@ -37,7 +37,7 @@
                 <button type="submit">Iniciar sesión</button>
             </form>             
             <div class="login-card-footer">
-                ¿Eres nuevo en RomanTech? <a href="sign up.html">Crear tu cuenta de RomanTech</a>
+                ¿Eres nuevo en RomanTech? <a href="sign-up.php">Crear tu cuenta de RomanTech</a>
             </div>
         </div>
     </div>

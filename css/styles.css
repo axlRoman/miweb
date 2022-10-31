@@ -276,13 +276,13 @@ p{
 
 /* Foooter */
 .footer {
-    text-align: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
     
     background-color: var(--purpura);
     color: white;
-    padding-bottom: 10rem;
+    padding-top: 5rem;
 }
 
 /*Apartado de contacto*/

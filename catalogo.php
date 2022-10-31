@@ -1,63 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width=device=width, initial-scale1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-        href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-        rel="stylesheet"/>
-        <script src="https://kit.fontawesome.com/24d0778069.js" crossorigin="anonymous"></script>
-        <link rel="icon" href="imgs/Logo RomanTech.png">
-        <title>Catalogo de RomanTech</title>
-        <!--<link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />-->
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="preload" href="css/styles.css" as="style">
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    
+<?php
+require_once('php/header.php')
+?>
     <body>
-        <header>
-            <!--<div class="navbar"> -->
-                <!--<nav class="navegacion en logo"></nav>-->
-                <a href="index.html"class="logo">
-                    <img src="imgs/Logo RomanTech.png" alt="Logo de la compañia" class="logo-img">                    
-                </a>
-                <!--<nav class="navegacion-principal">
-                    -->                
-                    <div class="buscar">
-                        <input type="text" placeholder="Buscar" required class="buscar">
-                        <a href="resultados.html"><div class="boton">
-                            <i class="fas fa-search icon"></i>
-                        </div></a>
-                    </div>
-                    <div>
-                        <a href="cart.html">                        
-                            <div class="carrito">
-                                <i class="fas fa-cart-shopping icon"></i>
-                            </div>                        
-                        </a>
-                    </div>                                                      
-        </header>
-        <div class="nav-bg">
-            <nav class="navegacion-principal">
-                <a href="index.html">Inicio</a>                
-                <a href="quienes somos.html">Quienes Somos</a>
-                <a href="catalogo.html">Catalogo</a>
-                <a href="login.html">Iniciar Sesion</a>
-                <a href="contacto.html">Contacto</a>
-                <!--<a href="#">Videojuegos</a>-->
-            </nav>
-        </div>
-
         <main class="contenedor sombra">
             <div class="productos">
                 <div class="producto">
@@ -195,13 +139,8 @@
             </div>
                 
         </main>
-            
-        <footer class="footer">
-            <p> &nbsp;</p>
-            <p> &nbsp;</p>
-            <p>© 2022, RomanTech.com</p>
-        </footer>
-
-        
+        <?php
+            require_once('php/footer.php')
+        ?> 
     </body>
 </html>
