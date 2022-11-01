@@ -18,14 +18,14 @@
                 <h1>Iniciar sesión</h1>
                 <div>Por favor inicie sesión para continuar</div>
             </div>
-            <form class="login-card-form">
+            <form class="login-card-form" action="php/loginuser.php" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">mail</span>
-                    <input type="text" placeholder="Ingrese su email" required autofocus>
+                    <input type="text" name="correo" id="correo" placeholder="Ingrese su email" required autofocus>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">lock</span>
-                    <input type="password" placeholder="Ingrese su contraseña" required>
+                    <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña" required>
                 </div>
                 <div class="form-item-other">
                     <div class="checkbox">

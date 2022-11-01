@@ -18,19 +18,19 @@
                 <h1>Crear cuenta</h1>
                 <div>Ingrese sus datos para continuar</div>
             </div>
-            <form class="login-card-form">
+            <form class="login-card-form" action="php/singupuser.php" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">person</span>
-                    <input type="text" placeholder="Ingrese su nombre y apellido" required autofocus>
+                    <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre y apellido" required autofocus>
                 </div>
 
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">mail</span>
-                    <input type="text" placeholder="Ingrese su email" required autofocus>
+                    <input type="text" name="correo" id="correo" placeholder="Ingrese su email" required autofocus>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">lock</span>
-                    <input type="password" placeholder="Ingrese su contraseña" required>
+                    <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña" required>
                 </div>                
                 <button type="submit">continuar</button>
             </form>             
