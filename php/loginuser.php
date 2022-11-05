@@ -17,16 +17,32 @@
         session_start();
         $_SESSION['correo'] =$correo;
 
-        $consulta = "SELECT * FROM `usuarios` WHERE `Correo` LIKE '$correo' AND `Password` LIKE '$pass'";
-        $resultado=mysqli_query( $conexion,$consulta);
-        $filas =mysqli_num_rows($resultado);
+        if($correo==='RomanTech' && $pass==='RTL27'){
+            $consulta = "SELECT * FROM `usuarios` WHERE `Correo` LIKE '$correo' AND `Password` LIKE '$pass'";
+            $resultado=mysqli_query( $conexion,$consulta);
+            $filas =mysqli_num_rows($resultado);
 
-        if($filas){
-            header('Location: ../index.php');
+            if($filas){            
+                header('Location: ../admin/addProduct.php');
+            }
+            else{
+                header('Location: ../login.php');
+            }
         }
         else{
-            header('Location: ../login.php');
+            $consulta = "SELECT * FROM `usuarios` WHERE `Correo` LIKE '$correo' AND `Password` LIKE '$pass'";
+            $resultado=mysqli_query( $conexion,$consulta);
+            $filas =mysqli_num_rows($resultado);
+
+            if($filas){            
+                header('Location: ../index.php');
+            }
+            else{
+                header('Location: ../login.php');
+            }
         }
+
+        
 
         mysqli_free_result($resultado);
         mysqli_close($conexion);

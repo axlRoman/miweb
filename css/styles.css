@@ -1,10 +1,22 @@
 :root{
-    --principal: #695be6;
+    /*--principal: #480355;*/
+    /*--principal: #695be6*/
     --botones: #440088;
-    --purpura: #4c3f6d;
-    --morado: #8f79cb;    
-    --rosa: #f5c5f9;
+    --purpura: #480355;;
+    --morado: #9448BC;    
+    --azul: #7699D4;
+    --azulito: #90FCF9;
     --gris: #ebebeb;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
 }
 
 * {
@@ -15,6 +27,10 @@
   }
 
 /* Globales */
+body{
+    background: #f3f3f3;
+}
+
 html{
     font-size: 62.5%;
     box-sizing: border-box;
@@ -62,6 +78,11 @@ a{
 p{
     font-size: 1.8rem;
     
+}
+
+span{
+    font-size: 1.8rem;
+    padding-bottom: 2rem;
 }
 
 /*Navegacion logo (inicio) / Barra de busqueda / Usuario y Carrito*/
@@ -203,12 +224,35 @@ p{
     color: #000;
 }
 
+/*Para contenedores*/
 
 .contenedor{
-    max-width: 100rem;
-    margin: 3rem auto;
+    width: 98%;
+    margin: 2rem auto;
 }
 
+#box #box-heading{
+    text-align: left;
+    -webkit-border-radius: 7px 7px 0 0;
+    -moz-border-radius: 7px 7px 0 0;
+    -khtml-border-radius: 7px 7px 0 0;
+    border-radius: 7px 7px 0 0;
+    border: 1px solid #ff00dd;
+    background: var(--azul);
+    color: #fff;
+    padding: 8px 0 6px 10px;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 1em;
+}
+.catalogo #box-content{
+    display: inline-block!important;
+}
+
+
+
+/*Fin contenedores*/
+/*
 .sombra{
     -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
     -mozbox-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
@@ -217,7 +261,7 @@ p{
     padding: 2rem;
     border-radius: 1rem;
 }
-
+*/
 /*Aqui se mostraran los productos principales del catalogo*/
 .productos{
     display: grid;

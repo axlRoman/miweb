@@ -2,7 +2,28 @@
 require_once('php/header.php')
 ?>
     <body>
-        <main class="contenedor sombra">
+        <div class="productos-show">
+            <div class="contenedor clearfix">
+                <div id="box">
+                    <div id="box-heading">
+                        Destacados
+                    </div>
+                    <div id="box-content">
+                    <a href="#">
+                        <figure>
+                            <img src="imgs/Tarjetas madre/CP-ASUS-90MB17E0-M0AAY0-1.webp" alt="tarjeta madre asus">
+                            <div class="descripcion">
+                                Tarjeta Madre ASUS Micro-ATX PRIME H510M-E, S-1200, Intel H510, HDMI, 64GB DDR4 para Intel 
+                            </div>
+                        </figure>                        
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!--
+        <main class="contenedor clearfix">
             <div class="productos">
                 <div class="producto">
                     <a href="#">
@@ -139,7 +160,7 @@ require_once('php/header.php')
             </div>
                 
         </main>
-
+-->
         <?php
             require_once('php/footer.php')
         ?>        
