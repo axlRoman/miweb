@@ -4,9 +4,9 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    background: #34ad56;
+    /*background: #34ad56;*/
     min-height: 100vh;
-    /*background: linear-gradient(to bottom, #00a2ff, #ff00cc);*/
+    background: linear-gradient(to bottom, #00a2ff, #ff00cc);
     /*display: flex;        */
     /*align-items: center;*/
     /*justify-content: center;*/
@@ -24,7 +24,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: purple;
+    /*background: purple;*/
     border-radius: 100px;    
 }
 
@@ -32,6 +32,17 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    
+}
+
+.inputs{
+    width: 45rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+textarea{
+    height: 10rem;
 }
 
 .products-table{
@@ -41,7 +52,7 @@ header{
     width: 70rem;        
     border-radius: 10px;
     position: relative;
-    
+    padding: 2rem;
 }
 
 .products-view{
@@ -66,21 +77,43 @@ header{
 }
 
 .products-view tr:hover td{
-    background-color: #7699D4;
+    background-color: #a474d4;
     color: white;
 }
 
 .products-view thead{
-    background-color: #7699D4;
+    background-color: #440088;
     color: white;
     border-bottom: solid 5px;
     
 }
-/*
+
+.boton-save{
+    display: flex;
+    align-items: flex-end;
+    background-color: #440088;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    color: white;
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer; 
+    transition: all 0.6s ease;   
+}
+
+.boton-save:hover{
+    background-color: #bb92e4;
+    
+}
+
 .botones{
     display: flex;
     flex-direction: row;
-    
 }
 
 .boton-edit{
@@ -90,15 +123,15 @@ header{
     padding: 0.5rem;
     margin-right: 1rem;
 }
-/*
+
 .boton-delete{
     background-color: red;
     color: white;
     text-decoration: none;
     padding: 0.5rem;
 }
-/*
 
+/*
 .login-card{
     width: 450px;
     background: rgba(255, 255, 255, 0.6);

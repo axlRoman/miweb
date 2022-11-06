@@ -67,29 +67,32 @@ if (isset($_REQUEST['action'])) {
         <div class="pure-u-1-12">
 
             <form action="?action=<?php echo $prod->SKU > 0 ? 'actualizar' : 'agregar'; ?>" method="POST" class="pure-form pure-form-stacked" style="margin-bottom:30px;">
-                <input type="hidden" name="SKU" value="<?php echo $prod->__GET('SKU'); ?>" />
+                <input type="hidden" class="inputs" name="SKU" value="<?php echo $prod->__GET('SKU'); ?>" />
                 <table class="products-table">
                     <tr>
                         <th style="text-align:left;">Nombre del producto</th>
-                        <td><input type="text" name="Nombre" value="<?php echo $prod->__GET('Nombre'); ?>" /></td>
+                        <td><input type="text" class="inputs" name="Nombre" value="<?php echo $prod->__GET('Nombre'); ?>" /></td>
                     </tr>
                     <tr>
                         <th style="text-align:left;">Descripcion</th>
-                        <td>
-                            <input type="text" name="Descripcion" value="<?php echo $prod->__GET('Descripcion'); ?>" style="width:100%;" />
+                        <td>                            
+                            <textarea class="inputs" name="Descripcion">
+                            <?php echo $prod->__GET('Descripcion'); ?>
+                            </textarea>
+                           
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align:left;">Precio</th>
-                        <td><input type="text" name="Precio" value="<?php echo $prod->__GET('Precio'); ?>" style="width:100%;" /></td>
+                        <td><input type="text" class="inputs" name="Precio" value="<?php echo $prod->__GET('Precio'); ?>" /></td>
                     </tr>
                     <tr>
                         <th style="text-align:left;">Cantidad</th>
-                        <td><input type="text" name="Inventario" value="<?php echo $prod->__GET('Inventario'); ?>" style="width:100%;" /></td>
+                        <td><input type="text" class="inputs" name="Inventario" value="<?php echo $prod->__GET('Inventario'); ?>" /></td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <button type="submit" class="pure-button pure-button-primary">Guardar</button>
+                        <td>
+                            <button type="submit" class="boton-save">Guardar</button>
                         </td>
                     </tr>
                 </table>
