@@ -43,6 +43,7 @@ header{
 
 textarea{
     height: 10rem;
+    text-align: left;
 }
 
 .products-table{

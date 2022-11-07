@@ -48,6 +48,7 @@ if (isset($_REQUEST['action'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../imgs/Logo RomanTech.png">
     <title>Administrador RomanTechMx</title>
     <link rel="stylesheet" type="text/css" href="../css/style-admin.css ">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,300,0,0" />
@@ -77,7 +78,7 @@ if (isset($_REQUEST['action'])) {
                         <th style="text-align:left;">Descripcion</th>
                         <td>                            
                             <textarea class="inputs" name="Descripcion">
-                            <?php echo $prod->__GET('Descripcion'); ?>
+                                <?php echo $prod->__GET('Descripcion'); ?>
                             </textarea>
                            
                         </td>
@@ -117,7 +118,7 @@ if (isset($_REQUEST['action'])) {
                             <td><?php echo $r->__GET('Precio'); ?></td>
                             <td><?php echo $r->__GET('Inventario'); ?></td>
                             <td class="botones">
-                                <a href="?action=editar&SKU=<?php echo $r->SKU; ?>" class="boton-edit" >Editar</a>
+                                <a href="?action=editar&SKU=<?php echo $r->SKU; ?>" class="boton-edit">Editar</a>
                                 <a href="?action=eliminar&SKU=<?php echo $r->SKU; ?>" class="boton-delete">Eliminar</a>
                             </td>
                             

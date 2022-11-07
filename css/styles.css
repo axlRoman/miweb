@@ -32,7 +32,7 @@ body{
 }
 
 html{
-    font-size: 62.5%;
+    /*font-size: 62.5%;*/
     box-sizing: border-box;
     /*background-color: var(--gris);*/
 }
@@ -162,7 +162,7 @@ span{
 
 @media (max-width: 480px) { /*Para Movil*/
     .buscar input{
-        width: 0px;
+        width: 20rem;
         height: 40px;
         padding: 0 2rem;
         font-size: 1.8rem;
@@ -171,13 +171,6 @@ span{
         border: 1px solid silver;
         border-radius: 3rem;
         transition: all 0.6s ease;
-    }
-    .buscar:hover input{
-        width: 20rem;
-    }
-    
-    .buscar input:focus{
-        width: 20rem;
     }
 }
 /*fin de barra de busqueda*/
@@ -230,7 +223,7 @@ span{
     width: 98%;
     margin: 2rem auto;
 }
-
+/*Aqui se mostraran los productos principales del catalogo*/
 #box #box-heading{
     text-align: left;
     -webkit-border-radius: 7px 7px 0 0;
@@ -245,14 +238,45 @@ span{
     font-weight: 100;
     line-height: 1em;
 }
-.catalogo #box-content{
-    display: inline-block!important;
+
+.box-content{
+    display: grid;
+    grid-template-columns: repeat(4,3fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
 }
 
+@media screen and (max-width: 768px) { 
+    .box-content{
+        display: grid;
+        grid-template-columns: repeat(2,3fr);
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+}
 
+@media screen and (max-width: 468px) { 
+    .box-content{
+        display: grid;
+        grid-template-columns: repeat(1,3fr);
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+}
 
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.card img{
+    height: 20rem;    
+    width: 20rem;
+}
+/*Fin de la visualizacion del catalogo*/
 /*Fin contenedores*/
-/*
+
 .sombra{
     -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
     -mozbox-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
@@ -261,56 +285,6 @@ span{
     padding: 2rem;
     border-radius: 1rem;
 }
-*/
-/*Aqui se mostraran los productos principales del catalogo*/
-.productos{
-    display: grid;
-    grid-template-columns: repeat(4,3fr);
-    column-gap: 2rem;
-    row-gap: 2rem;
-}
-
-.producto{
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-}
-
-.producto img{
-    height: 20rem;    
-    width: 20rem;
-    
-}
-
-.producto .descripcion{
-    text-align: center;
-    font-size: 1.5rem;
-    color: #000;
-}
-
-@media (max-width: 780px) { 
-    .productos{
-        display: grid;
-        grid-template-columns: repeat(3,3fr);
-        column-gap: 2rem;
-        row-gap: 2rem;
-    }
-}
-
-@media (max-width: 468px) { 
-    .productos{
-        display: grid;
-        grid-template-columns: repeat(2,3fr);
-        column-gap: 2rem;
-        row-gap: 2rem;
-    }
-
-    .producto img{
-        height: 15rem;  
-        width: 15rem;  
-    }
-}
-
 
 
 .producto:hover{

@@ -1,7 +1,85 @@
 <?php
-require_once('php/header.php')
+require_once('php/header.php');
+require_once('config/config.php');
+require_once('config/database.php');
+
+$db = new Database();
+$con = $db->conectar();
+
+$sql = $con->prepare("SELECT SKU, Nombre, Precio FROM productos ");
+$sql->execute();
+$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
-    <body>
+
+
+<body>
+
+    <main>
+        <div class="productos-show">
+            <div class="contenedor clearfix">
+                <div id="box">
+                    <div id="box-heading">
+                        Catalogo
+                    </div>
+                    <div class="box-content">
+                        <?php foreach($resultado as $row) { ?>
+                            <div class="card sombra">
+                            <a href="detalle.php?SKU=<?php echo $row['SKU']; ?>&token=<?php echo hash_hmac('sha1', $row['SKU'], KEY_TOKEN); ?>">
+                                    <?php
+                                        $sku = $row['SKU'];
+                                        $imagen = "imgs/productos/" . $sku . "/principal.jpg";
+                                        if(!file_exists($imagen)){
+                                            $imagen = "imgs/no-photo.png";
+                                        }
+                                    ?>
+
+                                    <img  class="imgs" src="<?php echo $imagen; ?>" alt="">
+                                </a>
+                                
+
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <?php echo $row['Nombre']; ?>
+                                    </h5>
+                                    <p>
+                                    <?php echo MONEDA . number_format($row['Precio'], 2,'.', ','); ?>
+                                    </p>
+                                </div>
+
+                            </div>
+                        <?php } ?>
+                    </div>
+                    
+                </div>                    
+            </div>
+        </div>
+    </main>
+
+<!--
+                            <a href="#">
+                                <figure>
+                                    <img src="imgs/Tarjetas madre/CP-ASUS-90MB17E0-M0AAY0-1.webp" alt="tarjeta madre asus">
+                                    <div class="descripcion">
+                                        <h5>
+                                        Tarjeta Madre ASUS Micro-ATX PRIME H510M-E, S-1200, Intel H510, HDMI, 64GB DDR4 para Intel 
+                                        </h5>
+                                        <p>
+                                            precio
+                                        </p>
+
+                                        <div>
+                                        <a href="#">Agregar al Carrito</a>    
+                                        </div>
+                                        
+                                    </div>
+                                </figure>                        
+                            </a>
+                    -->
+
+
+<!--
+
         <main class="contenedor sombra">
             <div class="productos">
                 <div class="producto">
@@ -139,6 +217,7 @@ require_once('php/header.php')
             </div>
                 
         </main>
+-->
         <?php
             require_once('php/footer.php')
         ?> 
