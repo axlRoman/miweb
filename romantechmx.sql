@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2022 a las 05:06:14
+-- Tiempo de generación: 08-11-2022 a las 06:26:58
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -20,6 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `romantechmx`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrito_usuarios`
+--
+
+CREATE TABLE `carrito_usuarios` (
+  `id_sesion` varchar(255) NOT NULL,
+  `sku_producto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 

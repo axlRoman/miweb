@@ -6,7 +6,7 @@ $db = new Database();
 $con = $db->conectar();
 
 
-$sql = $con->prepare("SELECT SKU, Nombre, Precio FROM productos ");
+$sql = $con->prepare("SELECT SKU, Nombre, Precio FROM productos LIMIT 0, 4;");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -22,7 +22,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                         Destacados
                     </div>
                     <div class="box-content">
-                        <?php foreach ($resultado as $row) { ?>                        
+                        <?php foreach($resultado as $row) { ?>                        
                             <div class="card sombra">
                             <a href="detalle.php?SKU=<?php echo $row['SKU']; ?>&token=<?php echo hash_hmac('sha1', $row['SKU'], KEY_TOKEN); ?>">
                                     <?php

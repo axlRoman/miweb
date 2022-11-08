@@ -7,6 +7,7 @@
     $token = $_POST['token'];
 
     $token_tmp = hash_hmac('sha1', $sku, KEY_TOKEN);
+    
     if ($token == $token_tmp) {
 
         if(isset($_SESSION['carrito']['productos'][$sku])){
