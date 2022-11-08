@@ -4,6 +4,7 @@
         private $SKU;
         private $Nombre;
         private $Descripcion;
+        private $Caracteristicas;
         private $Precio;
         private $Inventario;
 

@@ -32,6 +32,7 @@
                     $prod->__SET('SKU', $r->SKU);
                     $prod->__SET('Nombre', $r->Nombre);
                     $prod->__SET('Descripcion', $r->Descripcion);
+                    
                     $prod->__SET('Precio', $r->Precio);
                     $prod->__SET('Inventario', $r->Inventario);
 
@@ -59,6 +60,7 @@
                 $prod->__SET('SKU', $r->SKU);
                 $prod->__SET('Nombre', $r->Nombre);
                 $prod->__SET('Descripcion', $r->Descripcion);
+                
                 $prod->__SET('Precio', $r->Precio);
                 $prod->__SET('Inventario', $r->Inventario);
 
@@ -89,10 +91,11 @@
             try
             {
                 $sql = "UPDATE productos SET 
-                        Nombre      =?,
-                        Descripcion =?,
-                        Precio      =?,
-                        Inventario  =?
+                        Nombre          =?,
+                        Descripcion     =?,
+                        
+                        Precio          =?,
+                        Inventario      =?
                         WHERE SKU = ?";
                 
                 $this->pdo->prepare($sql)
@@ -100,6 +103,7 @@
                                 array(
                                     $data->__GET('Nombre'),
                                     $data->__GET('Descripcion'),
+                                    
                                     $data->__GET('Precio'),
                                     $data->__GET('Inventario'),
                                     $data->__GET('SKU')
@@ -124,6 +128,7 @@
                                 array(                                    
                                     $data->__GET('Nombre'),
                                     $data->__GET('Descripcion'),
+                                    
                                     $data->__GET('Precio'),
                                     $data->__GET('Inventario')                                    
                                     )

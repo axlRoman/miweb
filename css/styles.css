@@ -64,7 +64,7 @@ html{
 
 header{
     display: flex;
-    height: 7rem;
+    height: 4.5rem;
     background-color: var(--purpura);
     justify-content: space-between;
     align-items: center;
@@ -105,7 +105,7 @@ span{
     text-decoration: none;*/
 }
 .logo img{
-    height: 5rem;
+    height: 3rem;
     margin-right: 1rem;
 }
 
@@ -119,9 +119,9 @@ span{
 .buscar input{
     margin-top: 1rem;
     width: 45rem;
-    height: 4rem;
+    height: 2.5rem;
     padding: 0 2rem;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     color: #000;
     outline: none;
     border: 0.1rem solid silver;
@@ -130,17 +130,17 @@ span{
 }
 
 .boton{
-    margin-top: 0.8rem;
+    margin-top: 1rem;
     position: absolute;
     right: 0%;
     top: 0%;        
     background: var(--botones);
-    width: 5.5rem;
-    height: 5.5rem;
-    line-height: 5.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
     text-align: center;
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -150,7 +150,7 @@ span{
         width: 35rem;
         height: 40px;
         padding: 0 2rem;
-        font-size: 1.8rem;
+        font-size: 1.3rem;
         color: #000;
         outline: none;
         border: 1px solid silver;
@@ -162,10 +162,10 @@ span{
 
 @media (max-width: 480px) { /*Para Movil*/
     .buscar input{
-        width: 20rem;
+        width: 13rem;
         height: 40px;
-        padding: 0 2rem;
-        font-size: 1.8rem;
+        padding: 0 2rem ;
+        font-size: 1rem;
         color: #000;
         outline: none;
         border: 1px solid silver;
@@ -177,7 +177,7 @@ span{
 /*diseño visual del boton carrito*/
 .carrito{
     margin-right: 1rem;
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
 }
 
@@ -198,7 +198,7 @@ span{
     text-align: center;
     color: white;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 700;
     padding: 1rem;
 }
@@ -213,7 +213,7 @@ span{
 /*fin de botones de navegacion*/
 
 .navegacion-principal a:hover{
-    background-color: var(--rosa);
+    background-color: var(--azul);
     color: #000;
 }
 
@@ -246,7 +246,16 @@ span{
     row-gap: 2rem;
 }
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 1366px) { /*Laptop*/
+    .box-content{
+        display: grid;
+        grid-template-columns: repeat(3,3fr);
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) { /*Tablet*/
     .box-content{
         display: grid;
         grid-template-columns: repeat(2,3fr);
@@ -255,7 +264,7 @@ span{
     }
 }
 
-@media screen and (max-width: 468px) { 
+@media screen and (max-width: 468px) { /*Celular*/
     .box-content{
         display: grid;
         grid-template-columns: repeat(1,3fr);

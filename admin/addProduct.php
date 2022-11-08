@@ -11,6 +11,7 @@ if (isset($_REQUEST['action'])) {
         case 'agregar':
             $prod->__SET('Nombre',          $_REQUEST['Nombre']);
             $prod->__SET('Descripcion',     $_REQUEST['Descripcion']);
+            
             $prod->__SET('Precio',          $_REQUEST['Precio']);
             $prod->__SET('Inventario',      $_REQUEST['Inventario']);
 
@@ -18,9 +19,10 @@ if (isset($_REQUEST['action'])) {
             header('Location: addProduct.php');
             break;
         case 'actualizar':
-            $prod->__SET('SKU',          $_REQUEST['SKU']);
+            $prod->__SET('SKU',             $_REQUEST['SKU']);
             $prod->__SET('Nombre',          $_REQUEST['Nombre']);
             $prod->__SET('Descripcion',     $_REQUEST['Descripcion']);
+            
             $prod->__SET('Precio',          $_REQUEST['Precio']);
             $prod->__SET('Inventario',      $_REQUEST['Inventario']);
 
@@ -84,6 +86,15 @@ if (isset($_REQUEST['action'])) {
                         </td>
                     </tr>
                     <tr>
+                        <th style="text-align:left;">Caracteristicas</th>
+                        <td>                            
+                            <textarea class="inputs" name="Caracteristicas">
+                                <?php echo $prod->__GET('Caracteristicas'); ?>
+                            </textarea>
+                           
+                        </td>
+                    </tr>
+                    <tr>
                         <th style="text-align:left;">Precio</th>
                         <td><input type="text" class="inputs" name="Precio" value="<?php echo $prod->__GET('Precio'); ?>" /></td>
                     </tr>
@@ -105,6 +116,7 @@ if (isset($_REQUEST['action'])) {
                         <tr>
                             <th>Nombre</th>
                             <th>Descripcion</th>
+                            <th>Caracteristicas</th>
                             <th>Precio</th>
                             <th>Inventario</th>
                             <th>Modificar Productos</th>
@@ -115,6 +127,7 @@ if (isset($_REQUEST['action'])) {
                         <tr>
                             <td><?php echo $r->__GET('Nombre'); ?></td>
                             <td><?php echo $r->__GET('Descripcion'); ?></td>
+                            <td><?php echo $r->__GET('Caracteristicas'); ?></td>
                             <td><?php echo $r->__GET('Precio'); ?></td>
                             <td><?php echo $r->__GET('Inventario'); ?></td>
                             <td class="botones">

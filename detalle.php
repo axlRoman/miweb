@@ -4,15 +4,12 @@ require_once('config/database.php');
 
 $db = new Database();
 $con = $db->conectar();
-/*
-$sku = isset($_GET['SKU']) ? $_GET['SKU'] : '';
-$token = isset($_GET['token']) ? $_GET['token'] : '';*/
-$sku = $_GET['SKU'];
-$token = $_GET['token'];
 
-if ($sku == '' || $token == '') {
-    echo 'error';
-    /*header('Location: 404.html');*/
+$sku = isset($_GET['SKU']) ? $_GET['SKU'] : '';
+$token = isset($_GET['token']) ? $_GET['token'] : '';
+
+if ($sku == '' || $token == '') {    
+    header('Location: 404.html');
     exit();
 } else {
     $token_tmp = hash_hmac('sha1', $sku, KEY_TOKEN);
@@ -25,6 +22,7 @@ if ($sku == '' || $token == '') {
             $row = $sql->fetch(PDO::FETCH_ASSOC);
             $nombre = $row['Nombre'];
             $descripcion = $row['Descripcion'];
+            
             $precio = $row['Precio'];
             $inventario = $row['Inventario'];
         }
@@ -47,6 +45,13 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device=width, initial-scale1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+    crossorigin="anonymous">
+  
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
@@ -55,7 +60,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <title>Detalles</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style-detalle.css">
-    <!--    <link rel="preload" href="css/styles.css" as="style"> -->
+    <link rel="stylesheet" href="css/styles.css">    
 
 </head>
 
@@ -75,10 +80,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             </a>
         </div>
         <div>
-            <a href="cart.php">
-                <div class="carrito">
-                    <i class="fas fa-cart-shopping icon"></i>
-                </div>
+            <a href="cart.php" class="carrito">
+                    <i class="fas fa-cart-shopping icon">
+                        <span id="num-cart" class="badge bg-secondary"></span>
+                    </i>
+                    
+                
             </a>
         </div>
     </header>
@@ -142,7 +149,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                             <br>
                             <div class="botones">
                                 <button type="submit" class="button">Comprar ahora</button>
-                                <button type="submit" class="button transparente">Agregar al carrito</button>
+                                <button type="button" class="button transparente" onclick="añadirProducto(<?php echo $sku; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
                             </div>
                         </div>
                     </div>
@@ -158,7 +165,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                                 </p>
                             </div>
                             <div id="caracteristicas">
-                                <p><?php echo $descripcion; ?></p>
+                                <p><?php echo $caracteristicas; ?></p>
                             </div>
                         </div>
                     </div>
@@ -166,6 +173,33 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </main>
+
+    <!--Scips js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <script>
+        function añadirProducto(sku, token){
+            let url = 'clases/carrito.php'
+            let formData = new FormData()
+            formData.append('sku', sku)
+            formData.append('token', token)
+
+            fetch(url, {
+                method: 'POST',
+                body: formData,
+                mode: 'cors'
+            }).then(response => response.json())
+            .then(data => {
+                if(data.ok){
+                    let elemento = document.getElementById("num_cart")
+                    elemento.innerHTML = data.numero
+                }
+            })
+
+        }
+    </script>
+
+    
 </body>
 
 <?php

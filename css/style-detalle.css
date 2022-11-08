@@ -16,13 +16,12 @@
     font-family: "Poppins", sans-serif;
   }
 
-header{
+  header{
     display: flex;
-    height: 7rem;
+    height: 4.5rem;
     background-color: var(--purpura);
     justify-content: space-between;
     align-items: center;
-    
 }
 
 body{
@@ -65,7 +64,7 @@ html{
     text-decoration: none;*/
 }
 .logo img{
-    height: 5rem;
+    height: 3rem;
     margin-right: 1rem;
 }
 
@@ -79,9 +78,9 @@ html{
 .buscar input{
     margin-top: 1rem;
     width: 45rem;
-    height: 4rem;
+    height: 2.5rem;
     padding: 0 2rem;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     color: #000;
     outline: none;
     border: 0.1rem solid silver;
@@ -90,17 +89,17 @@ html{
 }
 
 .boton{
-    margin-top: 0.8rem;
+    margin-top: 1rem;
     position: absolute;
     right: 0%;
     top: 0%;        
     background: var(--botones);
-    width: 5.5rem;
-    height: 5.5rem;
-    line-height: 5.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
     text-align: center;
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -110,7 +109,7 @@ html{
         width: 35rem;
         height: 40px;
         padding: 0 2rem;
-        font-size: 1.8rem;
+        font-size: 1.3rem;
         color: #000;
         outline: none;
         border: 1px solid silver;
@@ -125,7 +124,7 @@ html{
         width: 20rem;
         height: 40px;
         padding: 0 2rem;
-        font-size: 1.8rem;
+        font-size: 1rem;
         color: #000;
         outline: none;
         border: 1px solid silver;
@@ -137,7 +136,7 @@ html{
 /*diseño visual del boton carrito*/
 .carrito{
     margin-right: 1rem;
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
 }
 
@@ -158,7 +157,7 @@ html{
     text-align: center;
     color: white;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 700;
     padding: 1rem;
 }
@@ -173,7 +172,7 @@ html{
 /*fin de botones de navegacion*/
 
 .navegacion-principal a:hover{
-    background-color: var(--rosa);
+    background-color: var(--azul);
     color: #000;
 }
 
