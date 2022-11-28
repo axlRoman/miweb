@@ -86,15 +86,6 @@ if (isset($_REQUEST['action'])) {
                         </td>
                     </tr>
                     <tr>
-                        <th style="text-align:left;">Caracteristicas</th>
-                        <td>                            
-                            <textarea class="inputs" name="Caracteristicas">
-                                <?php echo $prod->__GET('Caracteristicas'); ?>
-                            </textarea>
-                           
-                        </td>
-                    </tr>
-                    <tr>
                         <th style="text-align:left;">Precio</th>
                         <td><input type="text" class="inputs" name="Precio" value="<?php echo $prod->__GET('Precio'); ?>" /></td>
                     </tr>

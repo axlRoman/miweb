@@ -36,6 +36,7 @@
 
             if($filas){            
                 header('Location: ../index.php');
+                
             }
             else{
                 header('Location: ../login.php');

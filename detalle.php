@@ -139,19 +139,18 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                             <div class="cantidad">
                                 <label for="cantidad_producto">Cantidad:</label>
                                 <input type="number" name="cantidad_producto" id="cantidad_producto" max="<?php echo $inventario ?>" min="1" value="1">
-                                <span>(<?php echo $inventario ?> Disponibles) </span>
+                                <span>(<?php if($inventario ==1) {echo "Ultima Disponible";} else {echo $inventario; echo "  Disponibles";} ?>) </span>
                             </div>
                             <br>
                             <div class="botones">
                                 <button type="submit" class="button">Comprar ahora</button>
-                                <button type="button" class="button transparente" onclick="añadirProducto(<?php echo $sku; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
+                                <button type="button" class="button transparente agregar-carrito" action="cart.php"> Agregar al carrito</button>
                             </div>
                         </div>
                     </div>
                     <div class="producto-informacion">
                         <nav>
                             <a href="#descripcion">Descripcion</a>
-                            <a href="#caracteristicas">Caracteristicas</a>
                         </nav>
                         <div class="informacion clearfix">
                             <div class="" id="descripcion">
@@ -159,43 +158,12 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                                     <?php echo $descripcion; ?>
                                 </p>
                             </div>
-                            <div id="caracteristicas">
-                                <p><?php echo $caracteristicas; ?></p>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
-    <!--Scips js-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
-    <script>
-        function añadirProducto(sku, token){
-            let url = 'clases/carrito.php'
-            
-            let formData = new FormData()
-            formData.append('sku', sku)
-            formData.append('token', token)
-
-            fetch(url, {
-                method: 'POST',
-                body: formData,
-                mode: 'cors'
-            }).then(response => response.json())
-            .then(data => {
-                if(data.ok){
-                    let elemento = document.getElementById("num_cart")
-                    elemento.innerHTML = data.numero
-                }
-            })
-
-        }
-    </script>
-
-    
 </body>
 
 <?php
