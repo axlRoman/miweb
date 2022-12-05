@@ -175,7 +175,7 @@ span{
 }
 /*fin de barra de busqueda*/
 /*diseño visual del boton carrito*/
-#carrito{
+.carrito{
     margin-right: 1rem;
     font-size: 2rem;
     color: white;

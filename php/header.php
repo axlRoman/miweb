@@ -41,7 +41,7 @@ require_once('config/database.php');
         <div>
             <a href="cart.php" class="carrito">
                 <i class="fas fa-cart-shopping icon">
-                    <span id="num-cart"> <?php echo $num_cart; ?></span>
+
                 </i>
             </a>
         </div>

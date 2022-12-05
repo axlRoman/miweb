@@ -8,34 +8,25 @@ $con = $db->conectar();
 $sku = isset($_GET['SKU']) ? $_GET['SKU'] : '';
 $token = isset($_GET['token']) ? $_GET['token'] : '';
 
-if ($sku == '' || $token == '') {    
-    header('Location: 404.html');
-    exit();
-} else {
-    $token_tmp = hash_hmac('sha1', $sku, KEY_TOKEN);
-    if ($token == $token_tmp) {
-        $sql = $con->prepare("SELECT COUNT(SKU) FROM productos WHERE SKU=? ");
+$token_tmp = hash_hmac('sha1', $sku, KEY_TOKEN);
+if ($token == $token_tmp) {
+    $sql = $con->prepare("SELECT COUNT(SKU) FROM productos WHERE SKU=? ");
+    $sql->execute([$sku]);
+    if ($sql->fetchColumn() > 0) {
+        $sql = $con->prepare("SELECT Nombre, Descripcion, Precio, Inventario FROM productos WHERE SKU=?");
         $sql->execute([$sku]);
-        if ($sql->fetchColumn() > 0) {
-            $sql = $con->prepare("SELECT Nombre, Descripcion, Precio, Inventario FROM productos WHERE SKU=?");
-            $sql->execute([$sku]);
-            $row = $sql->fetch(PDO::FETCH_ASSOC);
-            $nombre = $row['Nombre'];
-            $descripcion = $row['Descripcion'];
-            
-            $precio = $row['Precio'];
-            $inventario = $row['Inventario'];
-        }
-    } else {
-        header('Location: 404.html');
-        exit();
+        $row = $sql->fetch(PDO::FETCH_ASSOC);
+        $nombre = $row['Nombre'];
+        $descripcion = $row['Descripcion'];
+
+        $precio = $row['Precio'];
+        $inventario = $row['Inventario'];
     }
 }
+?>
 
-$sql = $con->prepare("SELECT SKU, Nombre, Descripcion, Precio, Inventario FROM productos ");
-$sql->execute();
-$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
-
+<?php
+require_once('clases/funciones.php');
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +38,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device=width, initial-scale1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +48,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <title>Detalles</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style-detalle.css">
-    <link rel="stylesheet" href="css/styles.css">    
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
@@ -78,9 +69,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div>
             <a href="cart.php" class="carrito">
-                    <i class="fas fa-cart-shopping icon">
-                        <span id="num-cart"> <?php echo $num_cart; ?></span>
-                    </i>
+                <i class="fas fa-cart-shopping icon">
+                    <span id="num-cart"> <?php echo $num_cart; ?></span>
+                </i>
             </a>
         </div>
     </header>
@@ -139,12 +130,17 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
                             <div class="cantidad">
                                 <label for="cantidad_producto">Cantidad:</label>
                                 <input type="number" name="cantidad_producto" id="cantidad_producto" max="<?php echo $inventario ?>" min="1" value="1">
-                                <span>(<?php if($inventario ==1) {echo "Ultima Disponible";} else {echo $inventario; echo "  Disponibles";} ?>) </span>
+                                <span>(<?php if ($inventario == 1) {
+                                            echo "Ultima Disponible";
+                                        } else {
+                                            echo $inventario;
+                                            echo "  Disponibles";
+                                        } ?>) </span>
                             </div>
                             <br>
                             <div class="botones">
-                                <button type="submit" class="button">Comprar ahora</button>
-                                <button type="button" class="button transparente agregar-carrito" action="cart.php"> Agregar al carrito</button>
+                                <button type="button" class="button">Comprar ahora</button>
+                                <button type="submit" class="button transparente" action="cart.php"> Agregar al carrito</button>
                             </div>
                         </div>
                     </div>

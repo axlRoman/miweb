@@ -1,5 +1,24 @@
 <?php
-require_once('php/header.php')
+require_once('php/header.php');
+
+
+
+require_once 'carrito/cart.entidad.php';
+require_once 'carrito/card.model.php';
+
+//Logica para eliminar en el carrito
+$cart = new Carrito();
+$model = new CarritoModel();
+
+if (isset($_REQUEST['action'])) {
+    switch ($_REQUEST['action']) {
+        case 'eliminar':
+            $model->Eliminar($_REQUEST['sku_producto']);
+            header('Location: cart.php');
+            break;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +34,7 @@ require_once('php/header.php')
 
 <body>
 
-    <div class="carrito-contenedor">
+    <div class="carri   to-contenedor">
         <div class="contenedor clearfix">
             <div class="carrito-contenido">
 

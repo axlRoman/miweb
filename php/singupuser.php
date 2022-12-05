@@ -25,7 +25,19 @@
             die("Error al insertar datos: ".$conexion->error);
         }
     }
-
-    header('Location: ../login.php');
-
+/*
+    if(validarEmail($correo) == true){
+        header('Location: ../login.php');
+    }
+    else{
+        header('Location: ../sign-up.php');
+    }
+*/
 ?>
+<script languaje="javascript">
+        function validarEmail(email) {
+            expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!expr.test(email))
+                alert("Error: La dirección de correo " + email + " es incorrecta.");
+        }
+</script>
